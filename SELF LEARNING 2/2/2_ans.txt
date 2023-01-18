@@ -1,0 +1,9 @@
+2. Jelaskan  apa  itu  throwing  an  exception!  Dan  berikan  kegunaan  darithrowing an exception!Kapan throwing an exception baik digunakan? 
+
+- Throwing an exception berarti, sebagai programmer kita secara spesifik dan langsung memberitahu bahwa terjadi suatu error pada program kita. Kita dapat melakukan spesifikasi error tersebut dengan detail dan akurasi lebih baik. 
+
+- Salah satu manfaat yang paling mudah dirasakan adalah ketika menggunakan throw exception saat handling error. Biasanya paling cocok untuk hal ini, sebagai validasi ketika melakukan pemograman, untuk mencegah error yang tidak diinginkan terjadi.
+
+- Kesimpulan : Kapan throwing an exception baik digunakan? Ketika kita ingin memberikan informasi error yang lebih detail dan akurat, dan ketika kita ingin melakukan validasi error yang lebih baik.
+
+- Untuk Detail sample kodingan bisa di lihat di Answer2.java

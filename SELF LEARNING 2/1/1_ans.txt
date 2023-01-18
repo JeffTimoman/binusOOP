@@ -1,0 +1,14 @@
+10 Tipe Exception : 
+    a. NullPointerException
+    b. ArrayIndexOutOfBoundsException
+    c. ArithmeticException
+    d. StackOverflowError
+    e. SyntaxError
+    f. StringIndexOutOfBoundsException
+    g. NumberFormatException
+    h. NegativeArraySizeException
+    i. InterruptedException
+    j. FileNotFoundException
+
+Errornya dapat dicoba di file Code1.java ejet pak, 
+bu agaknya ga guna gua digeser ke sini gua masih bisa baca dan ngetik tanpa ada masalah
