@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class User {
     private String name;
     private String ID;
-    private String password;
 
     private void autoSetID(){
         String tempID = "";
@@ -17,9 +16,8 @@ public class User {
         this.ID = tempID;
     }
 
-    public User(String name, String password, ArrayList<User> users){
+    public User(String name, ArrayList<User> users){
         this.name = name;
-        this.password = password;
         this.autoSetID();
 
         for (User user : users) {
@@ -53,13 +51,4 @@ public class User {
     public String toString(){
         return "Name: " + this.name + " ID: " + this.ID;
     }
-
-    public boolean validatePassword(String password){
-        return this.password.equals(password);
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
 }
