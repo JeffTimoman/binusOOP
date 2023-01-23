@@ -19,34 +19,86 @@ public class Library {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
-
+    
     public void printBooks() {
         List <Book> books = getBooks();
         books.sort((Book b1, Book b2) -> b1.getId() - b2.getId());
+        System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", "ID", "Title", "Author", "Genre", "Pages", "Available");
+        System.out.println();
         for (Book book : books) {
-            System.out.println(book.getTitle());
+            System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getPages(), book.getIsAvailable());
+            System.out.println();
         }
+
     }
 
-    public void printBooks(String genre) {
+    public void printBooksByGenre(String genre) {
         List <Book> books = getBooks();
-        books.sort((Book b1, Book b2) -> b1.getTitle().compareTo(b2.getTitle()));
+        books.sort((Book b1, Book b2) -> b1.getId() - b2.getId());
+        System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", "ID", "Title", "Author", "Genre", "Pages", "Available");
+        System.out.println();
         for (Book book : books) {
-            if (book.getGenre().equals(genre)) {
-                System.out.println(book.getTitle());
+            if (((book.getGenre()).toLowerCase()).equals((genre).toLowerCase())) {
+                System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getPages(), book.getIsAvailable());
+                System.out.println();
             }
         }
     }
 
-    public void printDetail(String Title) {
-        boolean found = false;
+    public void printAvailableBooks() {
         List <Book> books = getBooks();
+        books.sort((Book b1, Book b2) -> b1.getId() - b2.getId());
+        System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", "ID", "Title", "Author", "Genre", "Pages", "Available");
+        System.out.println();
         for (Book book : books) {
-            if (book.getTitle().equals(Title)) {
-                System.out.println(book.getTitle() + " by " + book.getAuthor() + " (" + book.getPages() + " pages)" + " is " + (book.getIsAvailable() ? "available" : "not available"));
-                found = true;
+            if (book.getIsAvailable()) {
+                System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getPages(), book.getIsAvailable());
+                System.out.println();
             }
         }
-        if(!found)System.out.println("Book not found!");
+    }
+
+    public void printBookDetail(Book book){
+        System.out.println("Title: " + book.getTitle());
+        System.out.println("Author: " + book.getAuthor());
+        System.out.println("Genre: " + book.getGenre());
+        System.out.println("Pages: " + book.getPages());
+        System.out.println("Available: " + book.getIsAvailable());
+    }
+
+    public Book getBook(String title) {
+        for (Book book : books) {
+            if (book.getTitle().equals(title)) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public Book getBook(int id) {
+        for (Book book : books) {
+            if (book.getId() == id) {
+                return book;
+            }
+        }
+        return null;
+    }
+
+    public void borrowBook(Book book) {
+        book.setIsAvailable(false);
+    }
+
+    public void printBorrowedBooks(){
+        // Sort the book by id
+        List <Book> books = getBooks();
+        books.sort((Book b1, Book b2) -> b1.getId() - b2.getId());
+        System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", "ID", "Title", "Author", "Genre", "Pages", "Available");
+        System.out.println();
+        for (Book book : books) {
+            if (!book.getIsAvailable()) {
+                System.out.printf("%-5s | %-30s | %-30s | %-20s | %-10s | %-10s |", book.getId(), book.getTitle(), book.getAuthor(), book.getGenre(), book.getPages(), book.getIsAvailable());
+                System.out.println();
+            }
+        }
     }
 }

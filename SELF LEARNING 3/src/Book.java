@@ -71,16 +71,10 @@ public class Book {
         this.genre = genre;
     }
 
+
     @Override
-    public String toString() {
-        return "{" +
-            " title='" + getTitle() + "'" +
-            ", author='" + getAuthor() + "'" +
-            ", pages='" + getPages() + "'" +
-            ", id='" + getId() + "'" +
-            ", genre='" + getGenre() + "'" +
-            ", isAvailable='" + isIsAvailable() + "'" +
-            "}";
+    public String toString(){
+        return "Book [id=" + id + ", title=" + title + ", author=" + author + ", genre=" + genre + ", pages=" + pages + "]";
     }
     
     

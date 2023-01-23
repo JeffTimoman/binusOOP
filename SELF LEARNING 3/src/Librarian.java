@@ -3,24 +3,27 @@ import java.util.ArrayList;
 public class Librarian extends User{
     private String username;
     private String password;
-    public Librarian(String username, String name, String password, ArrayList<User> users){
-        super(name, users);
+
+    public Librarian(int ID, String name, String username, String password) {
+        super(ID, name);
+        this.username = username;
         this.password = password;
     }
 
-    public void addBook(Library library, Book book){
-        library.addBook(book);
+    public String getUsername() {
+        return username;
     }
 
-    public void removeBook(Library library, Book book){
-        library.removeBook(book);
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getPassword() {
-        return this.password;
-    }
-
-    public boolean checkPassword(String password){
+    public Boolean checkPass(String password) {
         return this.password.equals(password);
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }
