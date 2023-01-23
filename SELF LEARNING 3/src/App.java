@@ -163,25 +163,28 @@ public class App {
         Book book1 = new Book(bookID++, "The Hobbit", "J.R.R. Tolkien", "Fantasy", 1937);
         Book book2 = new Book(bookID++, "The Lord of the Rings", "J.R.R. Tolkien", "Fantasy", 1954);
         Book book3 = new Book(bookID++, "The Silmarillion", "J.R.R. Tolkien", "Fantasy", 1977);
-
+        Book book4 = new Book(bookID++, "The Fellowship of the Ring", "J.R.R. Tolkien", "Fantasy", 1954);
         // Add books to library
         library.addBook(book1);
         library.addBook(book2);
         library.addBook(book3);
+        library.addBook(book4);
 
         //Add some users
         User user1 = new User(userID++, "John Doe");
-        User user2 = new User(userID++, "Jane Doe");
+        User user2 = new User(userID++, "Donald Trump");
+        User user3 = new User(userID++, "Kim Jong Unch");
 
         userManager.addUser(user1);
         userManager.addUser(user2);
+        userManager.addUser(user3);
 
         // Print users
         // userManager.printUsers();
 
         // Add some librarians
-        Librarian librarian1 = new Librarian(librarianID++, "John Doe", "admin", "admin");
-
+        Librarian librarian1 = new Librarian(librarianID++, "Jeff", "admin", "admin");
+        Librarian librarian2 = new Librarian(librarianID++, "Oyin", "admin2", "admin2");
         userManager.addLibrarian(librarian1);
 
     }
@@ -342,3 +345,56 @@ public class App {
         input.nextLine();
     }
 }
+
+/*
+
+    //User 
+    --> Name, Username, Password
+    --> Getter, Setter, Constructor
+        - Librarian
+            
+        - Student
+    
+    //UserManager
+    --> List<User>
+    --> AddUser, RemoveUser, PrintUsers
+        - AddLibrarian, RemoveLibrarian, PrintLibrarians
+    
+    //Book
+    --> Title, Author, Genre, ID, Status
+
+    //Library
+    --> List<Book>
+    --> AddBook, RemoveBook, PrintBooks, PrintAvailableBooks, PrintBorrowedBooks, PrintBooksByGenre
+        - BorrowBook, ReturnBook
+    
+    // CheckOut
+    --> BOOK ID, USER ID, DATE
+
+    // CheckOutManager
+    --> List<CheckOut>
+    --> AddCheckOut, RemoveCheckOut, PrintCheckOuts, PrintCheckOutsByUser, PrintCheckOutsByBook
+
+    //Main
+    --> Menu
+        - User
+            - Search Book
+            - View All Books
+            - View Available Books
+            - View Books By Genre
+        - Librarian
+            - Search Book
+            - View All Books
+            - View Available Books
+            - View Books By Genre
+            - Add Book
+            - Remove Book
+            - View Borrowed Books
+            - Borrow Book
+            - Return Book
+            - Add User
+            - View All Users
+            - Remove User
+            - View All Librarians
+            - Add Librarian
+ */
