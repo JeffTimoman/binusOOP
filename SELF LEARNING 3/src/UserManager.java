@@ -33,8 +33,9 @@ public class UserManager {
         return true;
     }
     public void printLibrarians() {
+        System.out.printf("%-5s | %-30s | %-20s\n", "ID", "Name", "Username");
         for (Librarian librarian : librarians) {
-            System.out.println(librarian.toString());
+            System.out.printf("%-5d | %-30s | %-20s\n", librarian.getID(), librarian.getName(), librarian.getUsername());
         }
     }
 
