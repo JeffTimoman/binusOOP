@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 // import java.util.List;
 
@@ -124,7 +123,6 @@ public class App {
         library.removeBook(book);
         System.out.println("Book removed successfully");
     }
-
     public static void addBook(){
         System.out.print("Enter book title: ");
         String title = input.nextLine();
@@ -138,7 +136,6 @@ public class App {
         Book book = new Book(bookID++, title, author, genre, pages);
         library.addBook(book);
     }
-
     public static boolean login(){
         System.out.print("Enter username: ");
         String username = input.nextLine();
@@ -157,13 +154,11 @@ public class App {
             System.out.println("Book not found!");
         }
     }
-
     public static void bookSearchGenre(){
         System.out.print("Enter book genre: ");
         String genre = input.nextLine();
         library.printBooksByGenre(genre);
     }
-
     public static void innitiate(){
         Book book1 = new Book(bookID++, "The Hobbit", "J.R.R. Tolkien", "Fantasy", 1937);
         Book book2 = new Book(bookID++, "The Lord of the Rings", "J.R.R. Tolkien", "Fantasy", 1954);
@@ -190,7 +185,6 @@ public class App {
         userManager.addLibrarian(librarian1);
 
     }
-
     private static void printPick(){
         System.out.println("Welcome to the library system!");
         System.out.println("1. User");
@@ -198,7 +192,6 @@ public class App {
         System.out.println("0. Exit");
         System.out.print(">> ");
     }
-
     private static void printMenuUser(){
         System.out.println("1. Search book");
         System.out.println("2. View all books");
@@ -208,7 +201,6 @@ public class App {
         System.out.println("0. Return");
         System.out.print(">> ");
     }
-
     private static void printMenuLibrarian(){
         System.out.println("1. Search book");
         System.out.println("2. View all books");
@@ -227,10 +219,9 @@ public class App {
         System.out.println("0. Return");
         System.out.print(">> ");
     }
-
+    
     private static Scanner input = new Scanner(System.in);
     private static int bookID = 1, userID = 1, librarianID = 1;
-
     private static int menu, pick;
     private static Library library = new Library();
     private static UserManager userManager = new UserManager();
