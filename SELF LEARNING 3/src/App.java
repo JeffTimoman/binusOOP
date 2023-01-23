@@ -229,7 +229,7 @@ public class App {
     }
 
     private static Scanner input = new Scanner(System.in);
-    private static int bookID = 1, userID = 1, checkOutID = 1, librarianID = 1;
+    private static int bookID = 1, userID = 1, librarianID = 1;
 
     private static int menu, pick;
     private static Library library = new Library();
