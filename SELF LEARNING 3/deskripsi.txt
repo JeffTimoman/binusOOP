@@ -1,0 +1,51 @@
+Deskripsi Coding: (ZOOM 180% - Full Screen)
+Tema : Library (Sistem Peminjaman Buku)
+
+Anggota Tim : 
+1. 2602189480 - Jefferson Timotius Mansur - PPTI 15
+2. 2602189474 - Gideon Giyanto - PPTI 15
+
+Deskripsi Singkat Aplikasi : 
+Aplikasi memiliki dua versi, satu versi untuk User/Pelajar dan Librarian. Proses yang terjadi
+pada aplikasi ini, Librarian yang akan mengatur siapa yang ingin meminjam buku di dalam perpus
+-takaan. Untuk User terdapat 4 menu yang dapat mereka akses, sedangkan Librarian memiliki 14 menu 
+yang dapat di akses.
+
+App.java (Class App) 
+-> Sebagai fungsi Utama Library, pusat utama program
+
+Book.java (Class Book)
+-> Sebagai tempat untuk menyimpan informasi yang berkaitan dengan buku, seperti 
+judul Buku, Jumlah Halaman, Genre Buku, ID Buku, status buku(dipinjam/tidak)
+
+Library.java (Class Library)
+-> Sebagai sistem untuk memanage buku yang ada, mulai dari memasukkan buku,
+mengubah detail buku, menghapus buku, melihat daftar buku.
+
+User.java (Class User)
+-> Sebagai generalisasi dari user, tujuannya untuk menyimpan informasi yang berkaitan 
+dengan user : nama, ID User.
+
+Librarian.java (Class Librarian)
+-> Sebagai inheritance dari user, bedanya librarian seperti seorang admin di sebuah website. Jadi 
+memiliki atribut khusus, yaitu username dan password (untuk LOGIN). Librarian juga memiliki akses 
+di App.java sebagai admin, sehingga bisa melakukan beberapa fitur, seperti menambahkan user baru.
+
+UserManager.java (Class UserManager)
+-> Sebagai sistem untuk me-manage user-user yang terdapat dalam sistem. Misal : User (Sebagai 
+peminjam buku), dapat menambah user, membuang user, serta print nama-nama user.  Librarian : 
+menambah librarian, print daftar librarian.
+
+CheckOut.java (Class CheckOut)
+-> Sebagai tempat atau wadah untuk menyimpan transkasi atau proses pinjam-meminjam buku di perpus-
+takaan. Terdapat detail seperti, ID user dan ID buku yang dipinjam.
+
+CheckOutManager.java (Class CheckOutManager)
+-> Sebagai sistem untuk me-manage keluar masuknya buku yang terdapat dalam sistem.
+
+
+
+
+
+
+
