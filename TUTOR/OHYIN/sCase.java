@@ -113,12 +113,12 @@ class Validator{
     }
 
     public static boolean validateAmount(int amount, int stock){
-        if (stock <= 0 || stock > amount){
+        if (stock <= 0 || stock < amount){
             System.out.println("Invalid amount");
             return false;
         }
 
-        return false;
+        return true;
     }
 }
 
@@ -150,7 +150,17 @@ public class sCase {
         System.out.println("Nendoroid " + name + " added!");
         nendoroidList.add(temp);
     }
-
+    public static void updateNendoroid(){
+        /* Sort ArrayList by ID
+         * Tampilkan semua data yang telah disorting. 
+         * 
+         * Minta user memilih id yang valid dari arraylist yang telah ditampilkan
+         * Minta user memasukkan name serta stock, dan validasikan inputnya.
+         * Update data yang ada didalam array list. 
+         * 
+         * Tampilkan kembali semua data.
+         */
+    }
     public static void sellNendoroid(){
         // View Note : Sort
         // Sort -> berdasarkan nama A-Z
@@ -191,11 +201,19 @@ public class sCase {
         int amount; 
         do{
             System.out.printf("Enter amount [1-%d]", nendoroid.getStock());
-            amount = input.nextInt();
-        }while(!Validator.validateAmount(amount, nendoroid.getStock()));
+            amount = input.nextInt(); input.nextLine();
+        }while(!(Validator.validateAmount(amount, nendoroid.getStock())));
         
-        
+        int totalPrice = amount * nendoroid.getPrice();
+        System.out.printf("Total payment : %d\n", totalPrice);
+        int discount = 1 + ((int) (Math.random() * 5));
+        int discountAmount = (int) (discount * 0.01 * totalPrice);
+        System.out.printf("Discount [%d] : %d\n", discount, discountAmount);
+        System.out.printf("Total Price   : %d\n", totalPrice - discountAmount);
 
+        nendoroid.setStock(nendoroid.getStock() - amount);
+        nendoroid.setSold(nendoroid.getSold() + amount);
+        System.out.println("Thank for the purchase!");
     }
     public static Nendoroid getNendoroidByID(String id){
         for (Nendoroid temp : nendoroidList){
@@ -226,7 +244,8 @@ public class sCase {
         System.out.println("1. Add Nendoroid");
         System.out.println("2. Sell Nendoroid");
         System.out.println("3. View Nendoroid");
-        System.out.println("4. Exit");
+        System.out.println("4. Update Nendoroid");
+        System.out.println("0. Exit");
         System.out.print(">> ");
     }
 
@@ -251,7 +270,11 @@ public class sCase {
                     System.out.println("View Nendoroid");
                     viewNendoroid();
                     break;
-                case 4:
+                case 4 : 
+                    System.out.println("Update Nendoroid");
+                    updateNendoroid();
+                    break;
+                case 0:
                     System.out.println("Exit");
                     break;
                 default:
@@ -259,7 +282,7 @@ public class sCase {
                     break;
             }
             System.out.print("Press to continue...."); input.nextLine();
-        } while (menu != 4);
+        } while (menu != 0);
         
         input.close();
     }
