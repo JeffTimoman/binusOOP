@@ -32,4 +32,18 @@ public class Major {
     public ArrayList<Course> getCourses() {
         return courses;
     }
+
+    public Course getCoursesByStudentId(int studentId) {
+        for (Course course : courses) {
+            if (course.getStudentID() == studentId) {
+                return course;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        return major + "Number of Students : " + courses.size() + "";
+    }
 }

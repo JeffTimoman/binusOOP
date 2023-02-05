@@ -25,6 +25,9 @@ public class Student extends User{
         return studentID;
     }
     
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
     @Override
     public String toString() {
         return "Name : " + getName() + "Username : " + getUsername();  

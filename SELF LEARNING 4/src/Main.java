@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Menu.StudentMenu;
 import Menu.TeacherMenu;
 import major.Course;
 import major.Major;
@@ -10,6 +11,7 @@ import user.AppManager;
 
 public class Main {
     public static void innit(){
+
 
         AppManager.addMajor(new Major("Mathematics", 1));
         AppManager.addMajor(new Major("Physics", 2));
@@ -38,6 +40,13 @@ public class Main {
         }
         
     }
+    
+    public static Student loginStudent(){
+        System.out.println("Login as student!");
+        System.out.print("Username: "); String username = input.nextLine();
+        System.out.print("Password: "); String password = input.nextLine();
+        return AppManager.validateStudent(username, password);
+    }
     public static Teacher loginTeacher(){
         System.out.println("Login as teacher!");
         System.out.print("Username: "); String username = input.nextLine();
@@ -47,8 +56,12 @@ public class Main {
     private static int menu;
     private static Scanner input = new Scanner(System.in);
     private static TeacherMenu teacherMenu = new TeacherMenu(input);
+    private static StudentMenu studentMenu = new StudentMenu(input);
     public static void main(String[] args) {
         innit();
+        System.out.println("teacher1, teacher2, teacher3, teacher4, teacher5");
+        System.out.println("student1, student2, student3, student4, student5");
+        System.out.println("Password all : 123");
         do{
             System.out.println("Welcome to Student Management System!");
             System.out.println("1. Login as student");
@@ -58,13 +71,22 @@ public class Main {
             menu = input.nextInt(); input.nextLine();
             switch(menu){
                 case 1: 
-                break;
+                    Student student = loginStudent();
+                    if(student == null){
+                        System.out.println("Login failed!");
+                        break;
+                    }
+                    System.out.println("Login success!");
+                    studentMenu.setStudent(student);
+                    studentMenu.run();
+                    break;
                 case 2: 
                     Teacher teacher = loginTeacher();
                     if(teacher == null){
                         System.out.println("Login failed!");
                         break;
                     }
+                    System.out.println("Login success!");
                     teacherMenu.setTeacher(teacher);
                     teacherMenu.run();
                     break;

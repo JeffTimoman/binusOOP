@@ -28,4 +28,8 @@ public class Teacher extends User{
         this.major = major;
     }
 
+    public String getMajorName(){
+        return major.getMajor();
+    }
+
 }

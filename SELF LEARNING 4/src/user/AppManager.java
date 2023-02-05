@@ -2,6 +2,7 @@ package user;
 
 import java.util.ArrayList;
 
+import major.Course;
 import major.Major;
 
 public class AppManager {
@@ -11,6 +12,17 @@ public class AppManager {
 
     public static ArrayList<Major> getMajorList() {
         return majorList;
+    }
+    public static ArrayList<Major> getStudentJoinedMajor(int studentId){
+        ArrayList<Major> majors = new ArrayList<Major>();
+        for(Major major : majorList){
+            for(Course course : major.getCourses()){
+                if(course.getStudentID() == studentId){
+                    majors.add(major);
+                }
+            }
+        }
+        return majors;
     }
 
     public static void addMajor(Major major) {
