@@ -6,7 +6,7 @@ import major.Course;
 
 public class Student extends User{
     private static int id = 0;
-    private static int studentID = setID();
+    private int studentID = setID();
     private ArrayList <Course> courses = new ArrayList<Course>();
 
     public Student(String username, String password, String name) {
@@ -21,7 +21,12 @@ public class Student extends User{
         courses.add(course);
     }
 
-    public int getStudentID() {
+    public int getId() {
         return studentID;
+    }
+    
+    @Override
+    public String toString() {
+        return "Name : " + getName() + "Username : " + getUsername();  
     }
 }
