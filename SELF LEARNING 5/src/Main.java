@@ -7,6 +7,7 @@ import user.CustomerMenu;
 
 public class Main {
     private static CustomerMenu customerMenu = new CustomerMenu();
+    
     private static void innit(){
         Customer customer = new Customer("customer", "customer", "Customer");
         customer.addAccount(new Saving(1000));
@@ -14,9 +15,11 @@ public class Main {
         AppManager.addCustomer(customer);
         
     }
+
     private static Customer validateCustomer(String username, String password){
         return AppManager.validateLogin(username, password);
     }
+
     private static Scanner input = new Scanner(System.in);
     public static void main(String[] args) throws Exception{
         int menu;
@@ -30,6 +33,7 @@ public class Main {
             menu = input.nextInt(); input.nextLine();
 
             switch(menu){
+
                 case 1: 
                     System.out.print("Enter username: ");
                     String username = input.nextLine();
@@ -45,10 +49,17 @@ public class Main {
                     customerMenu.run();
                     break;
                 case 2: 
+                    int days;
+                    do{
+                        System.out.print("Enter days passed [0-100]: ");
+                        days = input.nextInt(); input.nextLine();
+                    }while(days < 0 || days > 100);
+                    AppManager.addDaysPassed(days);
                     break;
                 case 0:
                     break;
             }
+            System.out.print("Press enter to continue..."); input.nextLine();
         }while(menu != 0);
     }
 }

@@ -17,8 +17,12 @@ public class Account {
 
     }
 
+    public void addBalance(double addMoney){
+        this.balance += addMoney;
+    }
     public void addInterest(){
         this.balance += this.balance * this.interest/12;
+        addDebit(balance * this.interest/12);
     }
     
     public void addDebit(double debit){

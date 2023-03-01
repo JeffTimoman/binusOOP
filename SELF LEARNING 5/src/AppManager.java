@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 
+import account.Account;
+import account.Deposito;
+import account.Saving;
 import user.Customer;
 
 public class AppManager {
@@ -16,6 +19,20 @@ public class AppManager {
             }
         }
         return null;
+    }
+
+    public static void addDaysPassed(int days){
+        for (Customer customer : customers) {
+            for (Account account : customer.getAllAcounts()) {
+                if (account instanceof Saving){
+                    ((Saving) account).addDaysPassed(days);
+                }
+
+                if (account instanceof Deposito){
+                    ((Deposito) account).addDaysPassed(days);
+                }
+            }
+        }
     }
 
     public AppManager(){
